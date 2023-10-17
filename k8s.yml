@@ -30,5 +30,5 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - targetPort: 80
+    - targetPort: 85
       port: 80
