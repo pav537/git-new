@@ -10,7 +10,7 @@ pipeline{
            {
       	     print("building docker image") 
              sh "sudo chmod 777 /var/run/docker.sock"
-             sh "docker build -t pav537/cs3:latest ."
+             sh "docker build /home/ubuntu/jenkins/workspaces/job1 -t pav537/custom ."
       }
     }
 
