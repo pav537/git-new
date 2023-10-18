@@ -14,6 +14,13 @@ pipeline{
       }
     }
 
+    
+     stage('create nodeport service')
+        {
+          steps {
+            sh "kubectl delete -f k8s.yml"
+          }
+        }
      stage('create nodeport service')
         {
           steps {
