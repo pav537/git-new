@@ -31,4 +31,5 @@ spec:
   type: NodePort
   ports:
     - targetPort: 85
+      nodePort:300015
       port: 80
