@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: apache-d1
+ labels:
+  app: apache2
+spec:
+ replicas: 2
+ selector:
+  matchLabels:
+   app: casestudy
+ template:
+  metadata:
+   labels:
+    app: casestudy
+  spec:
+   containers:
+   - name: apache2
+     image: pav537/custom
+     ports:
+     - containerPort: 80
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-apache1
+spec:
+  type: NodePort
+  ports:
+    - targetPort: 82
+      port: 80
+  selector:
+     app: casestudy
