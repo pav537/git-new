@@ -23,6 +23,13 @@ pipeline{
             sh "kubectl get svc"
           }
         }
-
+     stage('create ingress service')
+        {
+          steps {
+           
+            sh "kubectl create -f ingress.yml"
+            sh "kubectl port-forward service/ingress-nginx-controller -n ingress-nginx --address 0.0.0.0 :443"
+          }
+        }
     }
 }
