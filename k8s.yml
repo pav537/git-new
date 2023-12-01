@@ -32,3 +32,5 @@ spec:
   ports:
     - targetPort: 85
       port: 80
+  selector:
+     app: casestudy
