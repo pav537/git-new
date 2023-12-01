@@ -27,9 +27,8 @@ pipeline{
      stage('create ingress service')
         {
           steps {
-           
+            sh "kubectl delete -f ingress.yml"
             sh "kubectl create -f ingress.yml"
-            sh "kubectl port-forward service/ingress-nginx-controller -n ingress-nginx --address 0.0.0.0 :443"
           }
         }
     }
