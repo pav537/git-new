@@ -38,9 +38,9 @@ pipeline{
      stage('create new nodeport service')
         {
           steps {
-           
+            sh "kubectl delete -f k8s.yml"
             sh "kubectl create -f k8s.yml"
-           
+            sh "kubectl delete -f k8s1.yml"
             sh "kubectl create -f k8s1.yml"
             sh "kubectl get svc"
           }
