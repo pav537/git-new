@@ -9,7 +9,7 @@ spec:
   rules:
   - http:
       paths:
-        - path: /custom
+        - path: /custom/
           pathType: Prefix
           backend:
             service:
@@ -18,7 +18,7 @@ spec:
                 number: 80
   - http:
       paths:
-        - path: /apache
+        - path: /apache/
           pathType: Prefix
           backend:
             service:
