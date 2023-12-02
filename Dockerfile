@@ -1,5 +1,5 @@
-FROM ubuntu/apache2
-RUN apt update -y
-RUN apt install systemctl -y
+FROM ubuntu
+RUN apt update
+RUN apt install apache2 -y
 ADD . /var/www/html
-
+CMD apachectl -D FOREGROUND
