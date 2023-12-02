@@ -30,7 +30,7 @@ pipeline{
 	   { 
             steps 
 		{ 
-		  sh "docker push pav537/2824:latest"			
+		  sh "docker push pav537/custom2:latest"			
             	} 
             }
        
