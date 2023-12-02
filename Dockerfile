@@ -1,6 +1,6 @@
 FROM ubuntu
 RUN apt update -y
 RUN apt install systemctl -y
-RUN apt install nginx -y
+RUN apt install apache2 -y
 ADD . /var/www/html
-CMD apachectl -D FOREGROUND
+ENTRYPOINT apachectl -D FOREGROUND
