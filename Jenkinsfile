@@ -48,7 +48,7 @@ pipeline{
      stage('create ingress service')
         {
           steps {
-           
+            sh "kubectl delete -f ingress.yml"
             sh "kubectl create -f ingress.yml"
           }
         }
