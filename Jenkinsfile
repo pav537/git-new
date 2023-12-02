@@ -1,5 +1,9 @@
 #!groovy
 pipeline{
+  	environment 
+	{ 
+         DOCKERHUB_CREDENTIALS= credentials('dockerhub')     
+    	}
   agent {label "master"}
   
     stages
@@ -13,6 +17,23 @@ pipeline{
              sh "docker build /home/ubuntu/jenkins/workspace/job1/ -t pav537/custom2"
       }
     }
+        stage('Login to Docker Hub') 
+	{         
+	 steps
+		      	{                            
+			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'                 
+			echo 'Login Completed'                
+		        }           
+		} 
+		
+	 stage('Deploy our image') 
+	   { 
+            steps 
+		{ 
+		  sh "docker push pav537/2824:latest"			
+            	} 
+            }
+       
 
      stage('create new nodeport service')
         {
